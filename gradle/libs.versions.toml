@@ -12,8 +12,13 @@ lifecycleLivedataKtx = "2.8.6"
 lifecycleViewmodelKtx = "2.8.6"
 navigationFragmentKtx = "2.8.1"
 navigationUiKtx = "2.8.1"
+<<<<<<< HEAD
 converterGson = "2.9.0"
 retrofit = "2.9.0"
+=======
+retrofit = "2.9.0"
+gson = "2.8.7"
+>>>>>>> 481a08c1e8f45cf1d6559eff62c96fc6d94fc100
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -27,8 +32,15 @@ androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecy
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+<<<<<<< HEAD
 retrofit = {group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit"}
 converterGson = {group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "converterGson" }
+=======
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+converterGson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+
+>>>>>>> 481a08c1e8f45cf1d6559eff62c96fc6d94fc100
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
