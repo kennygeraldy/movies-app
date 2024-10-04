@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesapp.R
 import com.example.moviesapp.ui.Data.MovieResponse
-import com.example.myapplications.HomeAdapter
+import com.example.moviesapp.ui.home.HomeAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
