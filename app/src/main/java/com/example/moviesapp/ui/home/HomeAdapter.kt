@@ -1,4 +1,4 @@
-package com.example.myapplications
+package com.example.moviesapp.ui.home
 
 import android.content.Intent
 import android.graphics.Bitmap

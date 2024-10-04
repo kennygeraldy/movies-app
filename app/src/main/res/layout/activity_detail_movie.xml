@@ -45,15 +45,50 @@
 
     <TextView
         android:id="@+id/detail_movie_overview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="370dp"
+        android:layout_height="116dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:textColor="@android:color/black"
+        app:layout_constraintBottom_toTopOf="@+id/average_rating_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_movie_release_date"
+        tools:text="This is a detailed overview of the movie. It provides a description of the movie's plot, characters, and other important details." />
+
+    <TextView
+        android:id="@+id/average_rating_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Average Rating: N/A"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/detail_movie_overview"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_movie_release_date"
+        tools:ignore="MissingConstraints" />
+
+    <RatingBar
+        android:id="@+id/detail_movie_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="0.5"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:text="This is a detailed overview of the movie. It provides a description of the movie's plot, characters, and other important details." />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/average_rating_text"
+        app:layout_constraintVertical_bias="0.426" />
+
+    <Button
+        android:id="@+id/add_to_watchlist_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add to Watchlist"
+        app:layout_constraintTop_toBottomOf="@+id/detail_movie_rating"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
