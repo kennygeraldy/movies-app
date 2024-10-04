@@ -20,6 +20,10 @@ class ActivityDetailMovie : AppCompatActivity() {
     private lateinit var ratingBar: RatingBar
     private lateinit var addToWatchlistButton: Button
     private lateinit var watchlist: MutableList<Movie>
+    private lateinit var averageRatingTextView: TextView
+
+    // Temporary array to hold ratings
+    private val ratings = mutableListOf<Float>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +42,7 @@ class ActivityDetailMovie : AppCompatActivity() {
         val posterImageView: ImageView = findViewById(R.id.detail_movie_poster)
         ratingBar = findViewById(R.id.detail_movie_rating)
         addToWatchlistButton = findViewById(R.id.add_to_watchlist_button)
+        averageRatingTextView = findViewById(R.id.average_rating_text)
 
         titleTextView.text = title
         releaseDateTextView.text = releaseDate
@@ -55,9 +60,11 @@ class ActivityDetailMovie : AppCompatActivity() {
         ratingBar.rating = 0f // Initialize the rating to 0
 
         // Set a listener to handle rating changes
-        ratingBar.setOnRatingBarChangeListener { ratingBar, rating, fromUser  ->
-            if (fromUser ) {
-                // Handle the rating change here
+        ratingBar.setOnRatingBarChangeListener { _, rating, fromUser ->
+            if (fromUser) {
+                // Add the rating to the list and update average
+                ratings.add(rating)
+                updateAverageRating()
                 Toast.makeText(this, "Rated $rating", Toast.LENGTH_SHORT).show()
             }
         }
@@ -86,6 +93,16 @@ class ActivityDetailMovie : AppCompatActivity() {
 
             // Show a toast message
             Toast.makeText(this, "Added to Watchlist", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    // Function to update the average rating and display it
+    private fun updateAverageRating() {
+        if (ratings.isNotEmpty()) {
+            val average = ratings.average()
+            averageRatingTextView.text = "Average Rating: ${String.format("%.1f", average)}"
+        } else {
+            averageRatingTextView.text = "Average Rating: N/A"
         }
     }
 
