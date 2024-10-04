@@ -16,6 +16,8 @@ class ActivityDetailMovie : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_movie)
 
+        supportActionBar?.hide()
+
         val title = intent.getStringExtra("title")
         val releaseDate = intent.getStringExtra("release_date")
         val overview = intent.getStringExtra("overview")
