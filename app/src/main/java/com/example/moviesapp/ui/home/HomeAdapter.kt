@@ -31,9 +31,9 @@ class HomeAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<HomeAd
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = movies[position]
-        holder.title.text = movie.title ?: "No title"
-        holder.releaseDate.text = movie.release_date ?: "No release date"
-        holder.overview.text = movie.overview ?: "No overview"
+        holder.title.text = movie.title
+        holder.releaseDate.text = movie.release_date
+        holder.overview.text = movie.overview
 
         val posterPath = movie.poster_path
         if (posterPath != null) {

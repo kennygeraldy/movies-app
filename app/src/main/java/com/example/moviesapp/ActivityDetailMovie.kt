@@ -21,8 +21,6 @@ class ActivityDetailMovie : AppCompatActivity() {
     private lateinit var addToWatchlistButton: Button
     private lateinit var watchlist: MutableList<Movie>
     private lateinit var averageRatingTextView: TextView
-
-    // Temporary array to hold ratings
     private val ratings = mutableListOf<Float>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,49 +52,36 @@ class ActivityDetailMovie : AppCompatActivity() {
             posterImageView.setImageResource(R.drawable.placeholder)
         }
 
-        // Set the rating bar's properties
         ratingBar.numStars = 5
         ratingBar.stepSize = 0.5f
-        ratingBar.rating = 0f // Initialize the rating to 0
+        ratingBar.rating = 0f
 
-        // Set a listener to handle rating changes
         ratingBar.setOnRatingBarChangeListener { _, rating, fromUser ->
             if (fromUser) {
-                // Add the rating to the list and update average
                 ratings.add(rating)
                 updateAverageRating()
                 Toast.makeText(this, "Rated $rating", Toast.LENGTH_SHORT).show()
             }
         }
 
-        // Initialize the watchlist
         watchlist = mutableListOf()
-
-        // Set a listener to handle the "Add to Watchlist" button click
         addToWatchlistButton.setOnClickListener {
-            // Get the movie details
             val movie = Movie(
                 title.toString(),
                 releaseDate.toString(),
                 overview.toString(),
                 posterPath.toString()
             )
-
-            // Add the movie to the watchlist
             watchlist.add(movie)
 
-            // Save the watchlist to SharedPreferences
             val sharedPreferences = getSharedPreferences("watchlist", MODE_PRIVATE)
             val editor = sharedPreferences.edit()
             editor.putString("watchlist", Gson().toJson(watchlist))
             editor.apply()
-
-            // Show a toast message
             Toast.makeText(this, "Added to Watchlist", Toast.LENGTH_SHORT).show()
         }
     }
 
-    // Function to update the average rating and display it
     private fun updateAverageRating() {
         if (ratings.isNotEmpty()) {
             val average = ratings.average()

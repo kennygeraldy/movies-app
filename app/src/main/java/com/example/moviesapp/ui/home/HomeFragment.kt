@@ -1,8 +1,6 @@
 package com.example.moviesapp.ui.home
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesapp.R
 import com.example.moviesapp.ui.Data.MovieResponse
-import com.example.moviesapp.ui.home.HomeAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -47,7 +44,6 @@ class HomeFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-                // Handle the error
             }
         })
     }
